@@ -1,0 +1,112 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
+// import 'main.dart';
+
+class MyChromeSafariBrowser extends ChromeSafariBrowser {
+
+  @override
+  void onOpened() async {
+    print("ChromeSafari browser opened");
+  }
+
+  @override
+  void onCompletedInitialLoad(didLoadSuccessfully) {
+    print("ChromeSafari browser initial load completed");
+  }
+
+  @override
+  void onClosed() {
+    print("ChromeSafari browser closed");
+  }
+
+  @override
+  void onPostMessage(String message) {
+    print('On Post Message $message');
+  }
+
+  @override
+  void onMessageChannelReady() {
+    print('On Message Channel Ready');
+  }
+
+  // @override
+  // Future<bool> requestPostMessageChannel({required WebUri sourceOrigin, WebUri? targetOrigin}) async {
+  //   print('On Request Post Message Channel');
+  //   this.requestPostMessageChannel(sourceOrigin: sourceOrigin, targetOrigin: targetOrigin);
+  //   return true;
+  // }
+
+  
+}
+
+class ChromeSafariBrowserExampleScreen extends StatefulWidget {
+  final ChromeSafariBrowser browser = MyChromeSafariBrowser();
+
+  @override
+  _ChromeSafariBrowserExampleScreenState createState() =>
+      _ChromeSafariBrowserExampleScreenState();
+}
+
+class _ChromeSafariBrowserExampleScreenState
+    extends State<ChromeSafariBrowserExampleScreen> {
+
+  @override
+  void initState() {
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final twaUrl = Uri.parse('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero');
+
+    // widget.browser.requestPostMessageChannel(sourceOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) , targetOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) );
+
+    return Scaffold(
+        appBar: AppBar(
+            title: Text(
+          "ChromeSafariBrowser",
+            ),),
+        body: Center(
+          child: ElevatedButton(
+              onPressed: () async {
+
+                await widget.browser.open(
+                    url: WebUri("https://d73b6a93.bash-web-mono-staging.pages.dev/giftero"),
+                    settings: ChromeSafariBrowserSettings(
+
+                        shareState: CustomTabsShareState.SHARE_STATE_OFF,
+                        isSingleInstance: false,
+                        isTrustedWebActivity: false,
+                        keepAliveEnabled: true,
+                        startAnimations: [
+                          AndroidResource.anim(
+                              name: "slide_in_left", defPackage: "android"),
+                          AndroidResource.anim(
+                              name: "slide_out_right", defPackage: "android")
+                        ],
+                        exitAnimations: [
+                          AndroidResource.anim(
+                              name: "abc_slide_in_top",
+                              defPackage:
+                                  "com.pichillilorenzo.flutter_inappwebviewexample"),
+                          AndroidResource.anim(
+                              name: "abc_slide_out_top",
+                              defPackage:
+                                  "com.pichillilorenzo.flutter_inappwebviewexample")
+                        ],
+                        dismissButtonStyle: DismissButtonStyle.CLOSE,
+                        presentationStyle:
+                            ModalPresentationStyle.OVER_FULL_SCREEN));
+
+                final channel = await widget.browser.requestPostMessageChannel(sourceOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) , targetOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) );
+                print('Channel: $channel');
+
+              },
+              child: Text("Open Chrome Safari Browser")),
+        ));
+  }
+}

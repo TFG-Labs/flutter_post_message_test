@@ -1,0 +1,6 @@
+{
+  "appTitle": "post_message_test",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
