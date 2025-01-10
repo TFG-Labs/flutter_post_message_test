@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-// import 'main.dart';
-
 class MyChromeSafariBrowser extends ChromeSafariBrowser {
 
   @override
@@ -31,14 +29,6 @@ class MyChromeSafariBrowser extends ChromeSafariBrowser {
   void onMessageChannelReady() {
     print('On Message Channel Ready');
   }
-
-  // @override
-  // Future<bool> requestPostMessageChannel({required WebUri sourceOrigin, WebUri? targetOrigin}) async {
-  //   print('On Request Post Message Channel');
-  //   this.requestPostMessageChannel(sourceOrigin: sourceOrigin, targetOrigin: targetOrigin);
-  //   return true;
-  // }
-
   
 }
 
@@ -62,8 +52,6 @@ class _ChromeSafariBrowserExampleScreenState
   @override
   Widget build(BuildContext context) {
     final twaUrl = Uri.parse('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero');
-
-    // widget.browser.requestPostMessageChannel(sourceOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) , targetOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) );
 
     return Scaffold(
         appBar: AppBar(
