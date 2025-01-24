@@ -1,0 +1,91 @@
+
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.use_as_origin"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bash.prod",
+      "sha256_cert_fingerprints": [
+        "85:97:3F:80:0A:5F:5A:16:E5:4C:EE:32:DC:B2:F8:C9:0E:84:0B:65:A2:33:38:81:4C:81:F1:D0:71:67:9F:DB",
+        "7E:26:DF:48:AC:74:C4:43:C7:85:93:92:E0:85:3F:F3:B4:06:B2:CB:4F:14:16:8B:7C:F0:9E:32:6E:5C:A9:79"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.use_as_origin"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tfglabs.manhattan.beta",
+      "sha256_cert_fingerprints": [
+        "A2:7B:6F:3C:B9:B2:4D:54:77:60:ED:3B:53:F0:F3:2E:4E:2C:F0:18:D4:95:B2:59:02:FD:DC:49:AF:42:7A:88"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.use_as_origin"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tfglabs.manhattan.dev",
+      "sha256_cert_fingerprints": [
+        "71:45:16:10:E5:5D:24:57:79:14:46:76:05:30:3C:BE:9B:85:1C:F0:91:96:E0:86:B3:8D:3E:9F:56:75:7B:21"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.chromecustomtabswebview",
+      "sha256_cert_fingerprints": [
+        "46:DD:9F:BA:B1:60:FE:40:30:E3:2E:69:2E:D3:71:F5:BA:CD:C1:72:47:5A:73:48:5B:EE:82:9B:49:F9:A5:55"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.use_as_origin"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.chromecustomtabswebview",
+      "sha256_cert_fingerprints": [
+        "46:DD:9F:BA:B1:60:FE:40:30:E3:2E:69:2E:D3:71:F5:BA:CD:C1:72:47:5A:73:48:5B:EE:82:9B:49:F9:A5:55"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.post_message_test",
+      "sha256_cert_fingerprints": [
+        "46:DD:9F:BA:B1:60:FE:40:30:E3:2E:69:2E:D3:71:F5:BA:CD:C1:72:47:5A:73:48:5B:EE:82:9B:49:F9:A5:55"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.use_as_origin"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.post_message_test",
+      "sha256_cert_fingerprints": [
+        "46:DD:9F:BA:B1:60:FE:40:30:E3:2E:69:2E:D3:71:F5:BA:CD:C1:72:47:5A:73:48:5B:EE:82:9B:49:F9:A5:55"
+      ]
+    }
+  }
+]

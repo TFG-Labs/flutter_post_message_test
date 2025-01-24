@@ -29,8 +29,30 @@ class MyChromeSafariBrowser extends ChromeSafariBrowser {
   void onMessageChannelReady() {
     print('On Message Channel Ready');
   }
-  
+
+  @override
+  void onServiceConnected() async {
+    print('On Service Connected');
+    // Validate the session as the same origin to allow cross origin headers.
+    await validateRelationship(relation: CustomTabsRelationType.USE_AS_ORIGIN,
+                               origin: WebUri("https://pay.staging.tfglabs.dev/app-sandbox"));
+  }
+
+  @override
+  void onRelationshipValidationResult(
+      CustomTabsRelationType? relation, Uri? requestedOrigin, bool result) async {
+        print('On Relationship Validation Result: $result');
+    // Launch Custom Tabs with non-approvelisted Extra Headers
+    // after session was validated as the same origin.
+    await launchUrl(url: WebUri("https://pay.staging.tfglabs.dev/app-sandbox"), headers: {
+      'bearer-token': 'Some token',
+      'redirect-url': 'Some redirect url',
+      'blahblah' : 'hello'
+    });
+  }
+
 }
+
 
 class ChromeSafariBrowserExampleScreen extends StatefulWidget {
   final ChromeSafariBrowser browser = MyChromeSafariBrowser();
@@ -51,7 +73,7 @@ class _ChromeSafariBrowserExampleScreenState
 
   @override
   Widget build(BuildContext context) {
-    final twaUrl = Uri.parse('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero');
+    final twaUrl = Uri.parse('https://pay.staging.tfglabs.dev/app-sandbox');
 
     return Scaffold(
         appBar: AppBar(
@@ -63,9 +85,11 @@ class _ChromeSafariBrowserExampleScreenState
               onPressed: () async {
 
                 await widget.browser.open(
-                    url: WebUri("https://d73b6a93.bash-web-mono-staging.pages.dev/giftero"),
+                    
+                    url: WebUri("https://pay.staging.tfglabs.dev/app-sandbox"),
+                    
                     settings: ChromeSafariBrowserSettings(
-
+                        
                         shareState: CustomTabsShareState.SHARE_STATE_OFF,
                         isSingleInstance: false,
                         isTrustedWebActivity: false,
@@ -90,8 +114,8 @@ class _ChromeSafariBrowserExampleScreenState
                         presentationStyle:
                             ModalPresentationStyle.OVER_FULL_SCREEN));
 
-                final channel = await widget.browser.requestPostMessageChannel(sourceOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) , targetOrigin: WebUri('https://d73b6a93.bash-web-mono-staging.pages.dev/giftero', forceToStringRawValue: false) );
-                print('Channel: $channel');
+                // final channel = await widget.browser.requestPostMessageChannel(sourceOrigin: WebUri('https://pay.staging.tfglabs.dev', forceToStringRawValue: false) , targetOrigin: WebUri('https://pay.staging.tfglabs.dev/app-sandbox', forceToStringRawValue: false) );
+                // print('Channel: $channel');
 
               },
               child: Text("Open Chrome Safari Browser")),
