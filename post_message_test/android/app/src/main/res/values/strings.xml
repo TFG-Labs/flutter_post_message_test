@@ -1,4 +1,26 @@
 <resources>
-    <string name="asset_statements" translatable="false">[{\"include\": \"https://pay.staging.tfglabs.dev/.well-known/assetlinks.json\"}]</string>
-
+    <!-- <string name="asset_statements" translatable="false">[{\"include\": \"https://pay.staging.tfglabs.dev/.well-known/assetlinks.json\"}]</string> -->
+    <string name="asset_statements">
+        [{
+            <!-- \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://flutter.dev\"} -->
+            \"relation\": [
+                \"delegate_permission/common.handle_all_urls\",
+                \"delegate_permission/common.use_as_origin\"
+            ],
+            \"target\": {
+                \"namespace\": \"/.well-known/assetlinks.json\",
+                \"site\": \"https://pay.staging.tfglabs.dev\",
+                <!-- \"namespace\": \"android_app\",
+                \"package_name\": \"com.example.post_message_test\",
+                \"sha256_cert_fingerprints\": [
+                    \"2C:8D:8F:3D:5F:81:45:C2:5D:81:65:A9:64:30:C4:70:84:5E:F9:AF:65:BF:00:DB:A3:1A:18:FC:32:DD:CB:EC\",
+                    \"46:DD:9F:BA:B1:60:FE:40:30:E3:2E:69:2E:D3:71:F5:BA:CD:C1:72:47:5A:73:48:5B:EE:82:9B:49:F9:A5:55\",
+                    \"99:62:A5:17:AD:37:11:AD:C6:19:69:1A:6A:FE:F3:FE:89:F6:9D:42:86:5F:7B:87:3A:0D:E9:FB:14:D9:80:72\"
+                ] -->
+            }
+        }] 
+    </string>
 </resources>

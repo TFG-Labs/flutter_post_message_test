@@ -48,11 +48,21 @@ android {
         versionName = flutterVersionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'post_message'
+            keyPassword 'message'//PROD_PRIVATE_PASSWORD ?: keystoreProperties['keyPassword'] ?: System.getenv("PROD_KEYSTORE_PRIVATE_PASSWORD")
+            storeFile file("../post_message_keystore.jks")
+            storePassword 'message'
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            //PROD_PASSWORD ?: keystoreProperties['storePassword'] ?: System.getenv("PROD_KEYSTORE_PASSWORD")
+            signingConfig = signingConfigs.release
         }
     }
 

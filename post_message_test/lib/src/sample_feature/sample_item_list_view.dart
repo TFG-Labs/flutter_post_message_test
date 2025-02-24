@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:post_message_test/src/sample_feature/chrome_webview';
+import 'package:post_message_test/src/sample_feature/chrome_webview.dart';
 
 import '../settings/settings_view.dart';
 import 'sample_item.dart';
-import 'sample_item_details_view.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
